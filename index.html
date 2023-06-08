@@ -55,9 +55,9 @@
         </div>
         <!-- Nav Bar start -->
         <div class="md:hidden xs:flex">
-            <span id="menuBar" class="text-blue-400 text-2xl" onclick="menuBar()">
+            <span id="menuBar" class="text-blue-400 text-2xl hover:text-blue-500" onclick="menuBar()">
                 <i class="fas fa-bars text-3xl" id="menuBarIcon"></i>
-                <i class="fas fa-times text-3xl text-red-400" id="cancelMenuBarIcon" style="display: none;"></i>
+                <i class="fas fa-times text-3xl text-red-400 hover:text-red-500" id="cancelMenuBarIcon" style="display: none;"></i>
             </span>
         </div>
         <div class="md:flex content-center xs:hidden">
@@ -80,7 +80,7 @@
     <div id="home" class="p-10">
         <div class="grid md:grid-cols-2 sm:grid-cols-1">
             <div class="grid place-content-center">
-                <div>
+                <div class="md:ms-20 md:me-5">
                     <p class="md:text-3xl xs:text-2xl text-gray-600 font-medium tracking-wide">မင်္ဂလာပါ</p>
                     <br>
                     <p class="md:text-5xl xs:text-4xl text-blue-400 font-medium tracking-wide">Better Fly မှ</p>
@@ -91,7 +91,7 @@
                         လူကြီးမင်းတို့၏ အလုပ်အကိုင်ရှာဖွေရေးနှင့် ပက်သတ်သည်များကို ကူညီပေးရန် <b>Better Fly</b> အသင့်ရှိနေပါတယ်
                     </p>
                     <br>
-                    <a href=""
+                    <a href="#contactUs"
                         class="font-semibold bg-blue-400 hover:bg-transparent text-gray-50 hover:text-blue-400 hover:border-2 hover:border-blue-400 rounded-xl py-3 px-10 hover:py-2.5 hover:px-[38px] transition ease-in-out duration-100">Contact
                         Us</a>
                 </div>
@@ -102,6 +102,38 @@
         </div>
     </div>
     <!-- Home end -->
+
+    <!-- Journey start -->
+    <div id="journey" class="mb-10">
+        <p class="md:text-3xl xs:text-2xl text-center font-medium tracking-wide">Our Journey</p>
+        <div class="grid md:grid-cols-3 sm:grid-cols-1 mt-5">
+            <div class="grid md:place-content-end sm:place-content-center">
+                <div class="bg-white rounded-xl p-16 m-3">
+                    <p class="text-center text-blue-400 text-3xl">
+                        <span class="counter" data-count="55">0</span><span>+</span>
+                    </p>
+                    <p class="text-xl text-center font-medium mt-5">CV Form ပြုလုပ်ပေးခြင်း</p>
+                </div>
+            </div>
+            <div class="grid md:place-content-center sm:place-content-center">
+                <div class="bg-white rounded-xl p-16 m-3">
+                    <p class="text-center text-blue-400 text-3xl">
+                        <span class="counter" data-count="10">0</span>
+                    </p>
+                    <p class="text-xl text-center font-medium mt-5">အလုပ်ရရှိသူများ</p>
+                </div>
+            </div>
+            <div class="grid md:place-content-start sm:place-content-center">
+                <div class="bg-white rounded-xl p-16 m-3">
+                    <p class="text-center text-blue-400 text-3xl">
+                        <span class="counter" data-count="4">0</span>
+                    </p>
+                    <p class="text-xl text-center font-medium mt-5">Companies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Journey end -->
 
     <!-- Service start -->
     <div id="service" class="mb-10">
@@ -520,12 +552,14 @@
         AOS.init();
     </script> -->
 
-    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script src="./dist/plugin/increment-numeric-counter/counter.js"></script>
 
     <script>
-        // $(() => {
-        //     console.log(123);
-        // });
+        $(() => {
+            console.log(123);
+        });
         
         document.getElementById("copyrightYear").innerHTML = new Date().getFullYear();
 
