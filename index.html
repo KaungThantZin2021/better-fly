@@ -29,14 +29,14 @@
                         Home
                     </li>
                 </a>
-                <a href="#service">
-                    <li class="py-2 px-4 bg-blue-100 text-gray-600 tracking-wide rounded-lg m-1 whitespace-nowrap hover:text-gray-50 hover:bg-blue-400">
-                        Service
-                    </li>
-                </a>
                 <a href="#aboutUs">
                     <li class="py-2 px-4 bg-blue-100 text-gray-600 tracking-wide rounded-lg m-1 whitespace-nowrap hover:text-gray-50 hover:bg-blue-400">
                         About Us
+                    </li>
+                </a>
+                <a href="#service">
+                    <li class="py-2 px-4 bg-blue-100 text-gray-600 tracking-wide rounded-lg m-1 whitespace-nowrap hover:text-gray-50 hover:bg-blue-400">
+                        Service
                     </li>
                 </a>
                 <a href="#contactUs">
@@ -55,7 +55,7 @@
         </div>
         <!-- Nav Bar start -->
         <div class="md:hidden xs:flex">
-            <span id="menuBar" class="text-blue-400 text-2xl hover:text-blue-500" onclick="menuBar()">
+            <span id="menuBar" class="text-blue-400 text-2xl hover:text-blue-500 hover:cursor-pointer" onclick="menuBar()">
                 <i class="fas fa-bars text-3xl" id="menuBarIcon"></i>
                 <i class="fas fa-times text-3xl text-red-400 hover:text-red-500" id="cancelMenuBarIcon" style="display: none;"></i>
             </span>
@@ -63,11 +63,11 @@
         <div class="md:flex content-center xs:hidden">
             <a href="#home"
                 class="font-semibold hover:bg-blue-400 hover:text-gray-50 rounded-full py-1.5 px-4 transition ease-in-out hover:-translate-y-0.5 duration-300">Home</a>
-            <a href="#service"
-                class="font-semibold hover:bg-blue-400 hover:text-gray-50 rounded-full py-1.5 px-4 transition ease-in-out hover:-translate-y-0.5 duration-300">Service</a>
-            <a href="#"
+            <a href="#aboutUs"
                 class="font-semibold hover:bg-blue-400 hover:text-gray-50 rounded-full py-1.5 px-4 transition ease-in-out hover:-translate-y-0.5 duration-300">About
                 Us</a>
+            <a href="#service"
+                class="font-semibold hover:bg-blue-400 hover:text-gray-50 rounded-full py-1.5 px-4 transition ease-in-out hover:-translate-y-0.5 duration-300">Service</a>
             <a href="#contactUs"
                 class="font-semibold hover:bg-blue-400 hover:text-gray-50 rounded-full py-1.5 px-4 transition ease-in-out hover:-translate-y-0.5 duration-300">Contact
                 Us</a>
@@ -87,8 +87,10 @@
                     <br>
                     <p class="md:text-4xl xs:text-3xl text-blue-700 font-medium tracking-wide">ကြိုဆိုပါတယ်</p>
                     <br>
-                    <p class="text-gray-600 tracking-wide">
-                        လူကြီးမင်းတို့၏ အလုပ်အကိုင်ရှာဖွေရေးနှင့် ပက်သတ်သည်များကို ကူညီပေးရန် <b>Better Fly</b> အသင့်ရှိနေပါတယ်
+                    <p class="text-gray-600 tracking-wide leading-loose">
+                        သင်က အလုပ်အကိုင် ရှာဖွေနေသူလား ဒါမှမဟုတ် ဝန်ထမ်းရှာဖွေနေသူလား။ ဘာပဲ လိုအပ်လိုအပ် <b>Better Fly</b> ကို သတိရလိုက်ပါ။
+                        <br>
+                        လူကြီးမင်းတို့၏ အလုပ်အကိုင် နှင့် ဝန်ထမ်း ရှာဖွေရေးတို့နှင့် ပက်သတ်သည်များကို ကူညီပေးရန် <b>Better Fly</b> အသင့်ရှိနေပါတယ်။
                     </p>
                     <br>
                     <a href="#contactUs"
@@ -103,37 +105,45 @@
     </div>
     <!-- Home end -->
 
-    <!-- Journey start -->
-    <div id="journey" class="mb-10">
-        <p class="md:text-3xl xs:text-2xl text-center font-medium tracking-wide">Our Journey</p>
-        <div class="grid md:grid-cols-3 sm:grid-cols-1 mt-5">
-            <div class="grid md:place-content-end sm:place-content-center">
-                <div class="bg-white rounded-xl p-16 m-3">
+    <!-- About Us start -->
+    <div id="aboutUs" class="mb-10">
+        <p class="md:text-3xl xs:text-2xl text-center font-medium tracking-wide">About Us</p>
+
+
+        <div class="mt-5 md:mx-32 xs:mx-10">
+            <p class="text-gray-600 tracking-wide leading-loose text-center">
+                Better Fly သည် အလုပ်အကိုင်ရှာဖွေနေသောသူများနှင့် ကျွမ်းကျင်ဝန်ထမ်းရှာဖွေနေသော လုပ်ငန်းရှင်များအကြား ပေါင်းကူးတံတား အဖြစ် တစ်ဖက်တစ်လမ်းမှ ဝန်ဆောင်မှုပေးနေသော Agency တစ်ခုဖြစ်ပါသည်။
+            </p>
+        </div>
+
+        <!-- <div class="md:flex xs:block justify-center mt-5">
+            <div class="md:w-1/4 xs:w-full h-52">
+                <div class="bg-white rounded-xl h-full p-16 m-3">
                     <p class="text-center text-blue-400 text-3xl">
                         <span class="counter" data-count="55">0</span><span>+</span>
                     </p>
-                    <p class="text-xl text-center font-medium mt-5">CV Form ပြုလုပ်ပေးခြင်း</p>
+                    <p class="text-xl text-center font-medium mt-5 whitespace-nowrap">CV Form ပြုလုပ်ပေးခြင်း</p>
                 </div>
             </div>
-            <div class="grid md:place-content-center sm:place-content-center">
-                <div class="bg-white rounded-xl p-16 m-3">
+            <div class="md:w-1/4 xs:w-full h-52">
+                <div class="bg-white rounded-xl h-full p-16 m-3">
                     <p class="text-center text-blue-400 text-3xl">
                         <span class="counter" data-count="10">0</span>
                     </p>
-                    <p class="text-xl text-center font-medium mt-5">အလုပ်ရရှိသူများ</p>
+                    <p class="text-xl text-center font-medium mt-5 whitespace-nowrap">အလုပ်ရရှိသူများ</p>
                 </div>
             </div>
-            <div class="grid md:place-content-start sm:place-content-center">
-                <div class="bg-white rounded-xl p-16 m-3">
+            <div class="md:w-1/4 xs:w-full h-52">
+                <div class="bg-white rounded-xl h-full p-16 m-3">
                     <p class="text-center text-blue-400 text-3xl">
                         <span class="counter" data-count="4">0</span>
                     </p>
-                    <p class="text-xl text-center font-medium mt-5">Companies</p>
+                    <p class="text-xl text-center font-medium mt-5 whitespace-nowrap">Companies</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-    <!-- Journey end -->
+    <!-- About Us end -->
 
     <!-- Service start -->
     <div id="service" class="mb-10">
