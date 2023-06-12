@@ -423,17 +423,21 @@
                 </div>
             </div>
             <div class="grid place-content-center mt-10">
-                <form method="post" action="mailto:betterfly07@gmail.com" enctype="text/plain">
+                <form id="sendMailForm">
                     <div class="mb-5">
-                        <input type="text" name="name" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="name" required>
+                        <input type="text" id="name" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="name" required>
                     </div>
 
                     <div class="mb-5">
-                        <input type="email" name="email" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="email" required>
+                        <input type="email" id="email" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="email" required>
                     </div>
 
                     <div class="mb-5">
-                        <textarea name="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" cols="30" rows="5"></textarea>
+                        <input type="text" id="subject" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="subject">
+                    </div>
+
+                    <div class="mb-5">
+                        <textarea id="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" cols="30" rows="5"></textarea>
                     </div>
                     <div class="text-center">
                         <!-- <a href="" class="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Large block button</a> -->
@@ -532,6 +536,8 @@
 
     <script src="./dist/plugin/increment-numeric-counter/counter.js"></script> -->
 
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <script>        
         document.getElementById("copyrightYear").innerHTML = new Date().getFullYear();
 
@@ -550,6 +556,27 @@
                 sidebar.style.display = "none";
             }
         }
+
+        const sendMailForm = document.getElementById('sendMailForm'),
+        name = document.getElementById('name'),
+        email = document.getElementById('email'),
+        subject = document.getElementById('subject'),
+        message = document.getElementById('message');
+
+        sendMailForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            Email.send({
+                SecureToken : "f1a2df6a-dcd7-46cc-aa0a-30be8cd28472",
+                To : 'betterflyjobagency07@gmail.com',
+                From : email.value,
+                Subject : subject.value,
+                Body : message.value
+            }).then(
+                message => alert(message)
+            );
+        });
+
     </script>
 </body>
 
