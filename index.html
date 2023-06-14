@@ -425,23 +425,19 @@
             <div class="grid place-content-center mt-10">
                 <form id="sendMailForm">
                     <div class="mb-5">
-                        <input type="text" id="name" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="name" required>
+                        <input type="text" name="name" id="name" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="your name" required>
                     </div>
-
                     <div class="mb-5">
-                        <input type="email" id="email" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="email" required>
+                        <input type="email" name="email" id="email" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="your email" required>
                     </div>
-
                     <div class="mb-5">
-                        <input type="text" id="subject" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="subject">
+                        <input type="text" name="subject" id="subject" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="subject">
                     </div>
-
                     <div class="mb-5">
-                        <textarea id="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" cols="30" rows="5"></textarea>
+                        <textarea name="message" id="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" cols="30" rows="5"></textarea>
                     </div>
                     <div class="text-center">
-                        <!-- <a href="" class="w-full h-12 px-6 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Large block button</a> -->
-                        <button type="submit" class="font-semibold w-full bg-blue-400 hover:bg-transparent text-gray-50 hover:text-blue-400 hover:border-2 hover:border-blue-400 rounded-xl py-3 px-10 hover:py-2.5 hover:px-[38px] transition ease-in-out duration-100"><i class="fas fa-paper-plane"></i> Send</button>
+                        <button type="submit" id="sendMailButton" class="font-semibold w-full bg-blue-400 hover:bg-transparent text-gray-50 hover:text-blue-400 hover:border-2 hover:border-blue-400 rounded-xl py-3 px-10 hover:py-2.5 hover:px-[38px] transition ease-in-out duration-100"><i class="fas fa-paper-plane"></i> Send</button>
                     </div>
                 </form>
             </div>
@@ -467,7 +463,7 @@
                 <br>
                 <p class="text-gray-100 text-base whitespace-nowrap"><i class="fas fa-phone mr-3"></i> <a href="tel:+959980966252">+959980966252</a></p>
                 <br>
-                <p class="text-gray-100 text-base whitespace-nowrap"><i class="fas fa-envelope mr-3"></i> <a href="mailto:betterfly07@gmail.com">betterfly07@gmail.com</a></p>
+                <p class="text-gray-100 text-base whitespace-nowrap"><i class="fas fa-envelope mr-3"></i> <a href="mailto:betterflyjobagency07@gmail.com">betterflyjobagency07@gmail.com</a></p>
             </div>
             <div>
                 <p class="text-gray-100 text-lg font-medium">Follow Us</p>
@@ -536,7 +532,54 @@
 
     <script src="./dist/plugin/increment-numeric-counter/counter.js"></script> -->
 
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        emailjs.init('kYXgxAH3z2z3DWkPZ')
+
+        const sendMailButton = document.getElementById('sendMailButton')
+        name = document.getElementById('name'),
+        email = document.getElementById('email'),
+        subject = document.getElementById('subject'),
+        message = document.getElementById('message');
+
+        document.getElementById('sendMailForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            sendMailButton.innerHTML = '<i class="fas fa-spinner animate-spin"></i> Sending...';
+
+            const serviceID = 'service_yzb1tc3';
+            const templateID = 'template_snanij6';
+
+            emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                name.value = '';
+                email.value = '';
+                subject.value = '';
+                message.value = '';
+
+                sendMailButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Successfully Sent!',
+                    text: 'You sent an email to Better Fly\'s team.',
+                    confirmButtonColor: '#5b9eff',
+                })
+            }, (err) => {
+                sendMailButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something was wrong!',
+                    text: JSON.stringify(err),
+                    confirmButtonColor: '#5b9eff',
+                })
+            });
+        });
+    </script>
 
     <script>        
         document.getElementById("copyrightYear").innerHTML = new Date().getFullYear();
@@ -556,46 +599,6 @@
                 sidebar.style.display = "none";
             }
         }
-
-        const sendMailForm = document.getElementById('sendMailForm'),
-        name = document.getElementById('name'),
-        email = document.getElementById('email'),
-        subject = document.getElementById('subject'),
-        msg = document.getElementById('message');
-
-        sendMailForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            Email.send({
-                SecureToken : "217256a9-1720-4fbd-91eb-5b129595ed94",
-                To : 'betterflyjobagency07@gmail.com',
-                From : email.value,
-                Subject : subject.value,
-                Body : msg.value
-            }).then(
-                message => alert(message)
-            );
-        });
-
-        // function sendEmail() {
-        //     const name = document.getElementById('name'),
-        //     email = document.getElementById('email'),
-        //     subject = document.getElementById('subject'),
-        //     message = document.getElementById('message');
-
-        //     // Email.send({
-        //     //     SecureToken : "f1a2df6a-dcd7-46cc-aa0a-30be8cd28472",
-        //     //     To : 'betterflyjobagency07@gmail.com',
-        //     //     From : 'betterflyjobagency07@gmail.com',
-        //     //     Subject : subject.value,
-        //     //     Body : message.value
-        //     // }).then(
-        //     //     message => alert(message)
-        //     // );
-
-        //     console.log(message.value);
-        // }
-
     </script>
 </body>
 
