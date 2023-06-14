@@ -561,21 +561,40 @@
         name = document.getElementById('name'),
         email = document.getElementById('email'),
         subject = document.getElementById('subject'),
-        message = document.getElementById('message');
+        msg = document.getElementById('message');
 
         sendMailForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             Email.send({
-                SecureToken : "f1a2df6a-dcd7-46cc-aa0a-30be8cd28472",
+                SecureToken : "237b4df1-062c-4ff3-bf06-9f5491ab05e7",
                 To : 'betterflyjobagency07@gmail.com',
                 From : 'betterflyjobagency07@gmail.com',
                 Subject : subject.value,
-                Body : message.value
+                Body : msg.value
             }).then(
                 message => alert(message)
             );
         });
+
+        // function sendEmail() {
+        //     const name = document.getElementById('name'),
+        //     email = document.getElementById('email'),
+        //     subject = document.getElementById('subject'),
+        //     message = document.getElementById('message');
+
+        //     // Email.send({
+        //     //     SecureToken : "f1a2df6a-dcd7-46cc-aa0a-30be8cd28472",
+        //     //     To : 'betterflyjobagency07@gmail.com',
+        //     //     From : 'betterflyjobagency07@gmail.com',
+        //     //     Subject : subject.value,
+        //     //     Body : message.value
+        //     // }).then(
+        //     //     message => alert(message)
+        //     // );
+
+        //     console.log(message.value);
+        // }
 
     </script>
 </body>
