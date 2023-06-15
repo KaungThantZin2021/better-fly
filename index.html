@@ -431,10 +431,10 @@
                         <input type="email" name="email" id="email" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="your email" required>
                     </div>
                     <div class="mb-5">
-                        <input type="text" name="subject" id="subject" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="subject">
+                        <input type="text" name="subject" id="subject" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="subject" required>
                     </div>
                     <div class="mb-5">
-                        <textarea name="message" id="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" cols="30" rows="5"></textarea>
+                        <textarea name="message" id="message" class="bg-gray-50 text-blue-400 placeholder-blue-300 rounded-xl focus:ring-blue-400 focus:border-blue-400 w-full p-2.5" placeholder="message" required cols="30" rows="5"></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" id="sendMailButton" class="font-semibold w-full bg-blue-400 hover:bg-transparent text-gray-50 hover:text-blue-400 hover:border-2 hover:border-blue-400 rounded-xl py-3 px-10 hover:py-2.5 hover:px-[38px] transition ease-in-out duration-100"><i class="fas fa-paper-plane"></i> Send</button>
@@ -565,7 +565,7 @@
                 Swal.fire({
                     icon: 'success',
                     title: 'Successfully Sent!',
-                    text: 'You sent an email to Better Fly\'s team.',
+                    text: 'You sent an email to Better Fly\'s team. They will contact you soon.',
                     confirmButtonColor: '#5b9eff',
                 })
             }, (err) => {
