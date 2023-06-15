@@ -17,10 +17,25 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* (A) SET CSS TRANSITION */
+        #loader { 
+            transition: all 1s; 
+        }
+        
+        /* (B) HIDE */
+        #loader.hide {
+            visibility: hidden;
+            opacity: 0;
+        }
     </style>
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-gray-200 h-full">
+    <div id="loader" class="bg-blue-400 fixed w-full h-full grid place-content-center z-10">
+        <img class="md:h-20 xs:h-14 animate-pulse" src="/dist/img/better-fly-high-resolution-logo-white-on-transparent-background.png" alt="Better Fly" title="Better Fly">
+    </div>
+    
     <div id="sidebar" class="hidden lg:hidden md:hidden sm:hidden relative">
         <div class="bg-gray-50 rounded-lg border border-blue-400 w-36 fixed right-5 top-20">
             <ul>
@@ -599,6 +614,12 @@
                 sidebar.style.display = "none";
             }
         }
+
+        window.onload = (event) => {
+            setTimeout(() => {
+                document.getElementById("loader").classList.toggle("hide");
+            }, 800)
+        };
     </script>
 </body>
 
